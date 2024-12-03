@@ -31,6 +31,8 @@ kind: Pod
 metadata:
   name: ebs-static
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1d
   containers:
   # docker run -d --name nginx nginx
   - name: nginx
@@ -42,3 +44,17 @@ spec:
   - name: ebs-static
     persistentVolumeClaim:
       claimName: ebs-static    
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  type: loadBalancer
+  selector:
+   purpose: ebs-static
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80 # service port
+    targetPort: 80 # c      
