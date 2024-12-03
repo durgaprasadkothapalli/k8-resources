@@ -32,8 +32,8 @@ kind: Pod
 metadata:
   name: ebs-static
 spec:
-  #nodeSelector:
-    #topology.kubernetes.io/zone: us-east-1d
+   nodeSelector:
+     topology.kubernetes.io/zone: us-east-1b
   containers:
   # docker run -d --name nginx nginx
   - name: nginx
@@ -57,7 +57,7 @@ spec:
   ports:
   - name: nginx-svc-port
     protocol: TCP
-    port: 8080
-    targetPort: 8080
+    port: 80
+    targetPort: 80
     nodePort: 30007 # service port
      # c      
