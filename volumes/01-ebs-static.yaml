@@ -76,7 +76,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-0b03e5789bb9ecf53     # created volume ID we need to provide here
+    volumeHandle: vol-00c2d9592cd791cc2    # created volume ID we need to provide here
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -99,7 +99,7 @@ metadata:
     purpose: ebs-static-volume-creation
 spec:
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1c
+    topology.kubernetes.io/zone: us-east-1b
   containers:
   - name: nginx
     image: nginx
