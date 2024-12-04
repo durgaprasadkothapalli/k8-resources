@@ -98,15 +98,16 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: expense-efs
+  name: efs-static
 spec:
-  volumeName: expense-efs
+  volumeName: efs-static
   accessModes:
     - ReadWriteOnce
   storageClassName: ""
   resources:
     requests:
       storage: 5Gi
+      
 ---
 apiVersion: v1
 kind: Pod
