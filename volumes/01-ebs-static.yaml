@@ -125,4 +125,4 @@ spec:
     targetPort: 80 # container port
     nodePort: 30007
 
-    durgaprasasd
+  
